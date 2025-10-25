@@ -178,15 +178,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Create email content
                 const emailContent = `
                     新しいお問い合わせが届きました：
-                    
+
                     お名前: ${data.name}
-                    会社名: ${data.company || 'なし'}
-                    メール: ${data.email}
-                    電話番号: ${data.phone || 'なし'}
-                    種別: ${data.subject}
-                    予算: ${data.budget || 'なし'}
-                    納期: ${data.deadline || 'なし'}
-                    
+                    メールアドレス: ${data.email}
+
                     メッセージ:
                     ${data.message}
                 `;
