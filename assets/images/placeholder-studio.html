@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recording Studio Background - Placeholder</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .studio-bg {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Mixing Console */
+        .console {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 100px;
+            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+        }
+        
+        .fader {
+            width: 8px;
+            height: 60px;
+            background: linear-gradient(180deg, #444 0%, #222 100%);
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .fader-knob {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            background: #666;
+            left: -6px;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .fader:nth-child(odd) .fader-knob {
+            top: 20%;
+        }
+        
+        .fader:nth-child(even) .fader-knob {
+            top: 60%;
+        }
+        
+        /* Microphone */
+        .mic-stand {
+            position: absolute;
+            top: 30%;
+            left: 60%;
+            transform: translateX(-50%);
+        }
+        
+        .mic-pole {
+            width: 4px;
+            height: 200px;
+            background: #333;
+            margin: 0 auto;
+        }
+        
+        .mic-boom {
+            width: 100px;
+            height: 4px;
+            background: #333;
+            transform: rotate(-30deg);
+            transform-origin: left center;
+            position: relative;
+            top: -180px;
+            left: 2px;
+        }
+        
+        .microphone {
+            position: absolute;
+            right: -30px;
+            top: -15px;
+            width: 25px;
+            height: 40px;
+            background: linear-gradient(180deg, #888 0%, #555 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .mic-grill {
+            width: 23px;
+            height: 25px;
+            background: repeating-linear-gradient(
+                0deg,
+                #666,
+                #666 1px,
+                #444 1px,
+                #444 2px
+            );
+            border-radius: 50% 50% 0 0;
+            margin: 1px auto;
+        }
+        
+        /* Sound Foam Panels */
+        .foam-panel {
+            position: absolute;
+            background: #2a2a2a;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+        
+        .foam-panel-1 {
+            top: 10%;
+            left: 10%;
+            width: 150px;
+            height: 100px;
+            transform: rotate(-2deg);
+        }
+        
+        .foam-panel-2 {
+            top: 15%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            transform: rotate(3deg);
+        }
+        
+        .foam-panel-3 {
+            top: 40%;
+            left: 5%;
+            width: 100px;
+            height: 150px;
+            transform: rotate(-1deg);
+        }
+        
+        .foam-panel-4 {
+            top: 50%;
+            right: 10%;
+            width: 130px;
+            height: 90px;
+            transform: rotate(2deg);
+        }
+        
+        /* Studio Monitor Speakers */
+        .speaker {
+            position: absolute;
+            background: #1a1a1a;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        
+        .speaker-left {
+            bottom: 25%;
+            left: 15%;
+            width: 80px;
+            height: 100px;
+        }
+        
+        .speaker-right {
+            bottom: 25%;
+            right: 15%;
+            width: 80px;
+            height: 100px;
+        }
+        
+        .woofer {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #333 30%, #222 60%, #111 100%);
+            border-radius: 50%;
+            margin: 10px auto 5px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+        
+        .tweeter {
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle, #444 20%, #222 100%);
+            border-radius: 50%;
+            margin: 0 auto;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        /* Recording Light */
+        .recording-light {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            width: 120px;
+            height: 40px;
+            background: #1a1a1a;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .rec-text {
+            color: #F4B3A0;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 0 0 10px rgba(244, 179, 160, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        
+        /* Overlay for depth */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(0,0,0,0.3) 0%,
+                transparent 50%,
+                rgba(0,0,0,0.4) 100%
+            );
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="studio-bg">
+        <!-- Sound Foam Panels -->
+        <div class="foam-panel foam-panel-1"></div>
+        <div class="foam-panel foam-panel-2"></div>
+        <div class="foam-panel foam-panel-3"></div>
+        <div class="foam-panel foam-panel-4"></div>
+        
+        <!-- Microphone Stand -->
+        <div class="mic-stand">
+            <div class="mic-pole"></div>
+            <div class="mic-boom">
+                <div class="microphone">
+                    <div class="mic-grill"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Studio Speakers -->
+        <div class="speaker speaker-left">
+            <div class="woofer"></div>
+            <div class="tweeter"></div>
+        </div>
+        <div class="speaker speaker-right">
+            <div class="woofer"></div>
+            <div class="tweeter"></div>
+        </div>
+        
+        <!-- Mixing Console -->
+        <div class="console">
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+            <div class="fader"><div class="fader-knob"></div></div>
+        </div>
+        
+        <!-- Recording Light -->
+        <div class="recording-light">
+            <span class="rec-text">RECORDING</span>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="overlay"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Robots.txt for miwako-aoki.com
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+Disallow: /assets/audio/
+Disallow: *.mp3$
+
+# Sitemap location
+Sitemap: https://miwako-aoki.com/sitemap.xml
+
+# Crawl-delay for responsible crawling
+Crawl-delay: 1
